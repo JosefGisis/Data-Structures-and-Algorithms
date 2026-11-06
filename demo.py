@@ -47,7 +47,10 @@ print(flattened_list)
 
 # generator function
 get_next_squared_number = (x**2 for x in range(100))
-print(next(get_next_squared_number))
-print(next(get_next_squared_number))
-print(next(get_next_squared_number))
-print(next(get_next_squared_number))
+# print(next(get_next_squared_number))
+# print(next(get_next_squared_number))
+# print(next(get_next_squared_number))
+# print(next(get_next_squared_number))
+
+for item in get_next_squared_number:
+    print(item)
