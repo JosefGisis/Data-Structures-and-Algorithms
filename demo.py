@@ -1,6 +1,6 @@
 # I am going to be testing my extremely rusty python skills
 
-from typing import Self
+from typing import Callable, Self
 
 a_string: str = "Hello World"
 a_number: int = 3
@@ -54,3 +54,19 @@ get_next_squared_number = (x**2 for x in range(100))
 
 for item in get_next_squared_number:
     print(item)
+
+
+def shout(func: Callable[[str], str]) -> Callable[[str], str]:
+    def wrapper(random_string: str):
+        result: str = func(random_string)
+        return result.upper()
+
+    return wrapper
+
+
+@shout
+def greet(name: str) -> str:
+    return "Hello, " + name
+
+
+print(greet("World"))
